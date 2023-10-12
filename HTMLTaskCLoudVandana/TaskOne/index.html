@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Basic Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel="javaScript" href="/HTMLTaskCLoudVandana/TaskOne/script.js"> -->
+    <style>
+        .calculator {
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+        }
+
+        .btn-lg {
+            font-size: 24px;
+            padding: 15px 20px;
+            margin: 2px;
+        }
+
+        #result {
+            width: 260px;
+            height: 60px;
+            font-size: 24px;
+        }
+
+        #resultPadd {
+            padding-left: 0px;
+        }
+
+        .row {
+            margin: 5px 0;
+        }
+
+        .row .col-3 {
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="calculator">
+            <div class="row">
+                <div class="col-9" id="resultPad">
+                    <input type="text" id="result" class="form-control">
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-warning btn-lg" onclick="clearInput()">C</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" onclick="appendNumber('1')">1</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" onclick="appendNumber('2')">2</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" onclick="appendNumber('3')">3</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-danger btn-lg" onclick="operate('+')">+</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" onclick="appendNumber('4')">4</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" onclick="appendNumber('5')">5</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" onclick="appendNumber('6')">6</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-danger btn-lg" onclick="operate('-')">-</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" onclick="appendNumber('7')">7</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" onclick="appendNumber('8')">8</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" onclick="appendNumber('9')">9</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-danger btn-lg" onclick="operate('*')">*</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" onclick="appendNumber('.')">.</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" onclick="appendNumber('0')">0</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-success btn-lg" onclick="calculate()">=</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-danger btn-lg" onclick="operate('/')">/</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        let input = '';
+
+        function appendNumber(number) {
+            input += number;
+            document.getElementById('result').value = input;
+        }
+
+        function operate(operator) {
+            input += operator;
+            document.getElementById('result').value = input;
+        }
+
+        function calculate() {
+            try {
+                input = eval(input);
+                document.getElementById('result').value = input;
+            } catch (error) {
+                document.getElementById('result').value = 'Wrong Expression';
+            }
+        }
+
+        function clearInput() {
+            input = '';
+            document.getElementById('result').value = '';
+        }
+
+    </script>
+</body>
+
+</html>
