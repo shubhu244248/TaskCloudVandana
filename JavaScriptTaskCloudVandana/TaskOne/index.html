@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reverse String</title>
+</head>
+
+<body>
+    <h1>Reverse String</h1>
+
+    <script>
+        function reverseWords(inputString) {
+            var words = inputString.split(' ');  // Split the input sentence into words
+            var reversedWords = []; // Array to store reversed words
+
+            for (var i = 0; i < words.length; i++) {
+                var word = words[i];
+                var reversedWord = '';
+
+                for (var j = word.length - 1; j >= 0; j--) {
+                    reversedWord += word[j]; // Reverse the characters in the word
+                }
+
+                reversedWords.push(reversedWord); // Add the reversed word to the array
+            }
+
+            var outputSentence = reversedWords.join(' '); // Reversed words into a reversed sentence
+
+            document.write("<p>Reversed String: " + outputSentence + "</p>"); // Use document.write to output the result
+        }
+
+        reverseWords("This is a sunny day"); // Input sentence
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sort Array in Descending Order</title>
+</head>
+
+<body>
+    <h1>Sorted Array (Descending Order)</h1>
+
+    <script>
+
+        var originalArray = [4, 2, 8, 1, 6, 3, 7, 5];
+
+        // sorting the array in descending order using a loop
+        for (var i = 0; i < originalArray.length; i++) {
+            for (var j = i + 1; j < originalArray.length; j++) {
+                if (originalArray[i] < originalArray[j]) {   // compare elements at positions i and j
+                    var temp = originalArray[i];  // swap elements if i is less than j
+                    originalArray[i] = originalArray[j];
+                    originalArray[j] = temp;
+                }
+            }
+        }
+
+        // Display the sorted array using document.write
+        document.write("<p>Sorted Array (Descending Order): " + originalArray.join(", ") + "</p>");
+    </script>
+</body>
+
+</html>
